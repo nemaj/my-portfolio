@@ -1,14 +1,39 @@
+import { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import "./App.scss";
+import classNames from "classnames";
+import About from "../../components/About";
+import Tech from "../../components/Tech";
+import Others from "../../components/Others";
 
 function App() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = (e) => {
+    const { scrollTop, scrollHeight, clientHeight } = e.target;
+    const position = Math.ceil(
+      (scrollTop / (scrollHeight - clientHeight)) * 100
+    );
+    setScrollPosition(position);
+  };
+
   return (
-    <div className="">
+    <div
+      onScroll={handleScroll}
+      style={{ height: "100vh", overflowY: "scroll", overflowX: "hidden" }}
+    >
       <div className="bg-[#100f22]">
         <div className="relative main-bg bg-[#151332] grid gap-[50px]">
           <div className="absolute top-0 left-0 w-full top-fade-bg h-[400px]"></div>
 
-          <section className="section-container relative">
+          <section
+            className={classNames(
+              "section-container relative",
+              scrollPosition >= 0 && scrollPosition <= 20
+                ? "fade-in"
+                : "fade-out"
+            )}
+          >
             <div className="min-h-screen flex gap-4 flex-col justify-center items-center">
               <code className="flex gap-4 items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 text-blue-300 text-xl sm:text-xl md:text-3xl font-mono tracking-wide drop-shadow-lg backdrop-blur-md">
                 <div className="pulse-base pulse-circle"></div>
@@ -23,39 +48,11 @@ function App() {
             </div>
           </section>
 
-          <section className="section-container py-[150px] context-fade">
-            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-              ABOUT
-            </h2>
-            <p
-              className="text-white text-lg sm:text-2xl md:text-3xl opacity-90 w-4/5 m-auto"
-              style={{ lineHeight: "1.7em" }}
-            >
-              Hi, I'm Jamen Mama, I am a Experienced Front-End Developer with 8+
-              years of expertise in building responsive and scalable web
-              applications, high-performing solutions tailored to both user
-              needs and business objectives.
-            </p>
-          </section>
+          <About scrollPosition={scrollPosition} />
 
-          <section className="section-container py-[150px] context-fade">
-            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-              PREPERED TECH
-            </h2>
-            <p className="text-white text-lg sm:text-2xl md:text-3xl opacity-80 leading-[50px] w-3/5 m-auto">
-              ReactJS, Angular, Tailwind, Restful APIs, Redux, Javacript, Sass
-              and more.
-            </p>
-          </section>
+          <Tech scrollPosition={scrollPosition} />
 
-          <section className="section-container pt-[150px] pb-[500px] context-fade">
-            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-              STACKS
-            </h2>
-            <p className="text-white text-lg sm:text-2xl md:text-3xl opacity-80 leading-[50px]">
-              React, Tailwind, Restful APIs, Redux, and more.
-            </p>
-          </section>
+          <Others scrollPosition={scrollPosition} />
 
           <div className="absolute z-0 bottom-0 left-0 w-full bottom-fade-bg h-[400px]"></div>
         </div>
