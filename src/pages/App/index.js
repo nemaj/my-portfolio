@@ -5,6 +5,8 @@ import classNames from "classnames";
 import About from "../../components/About";
 import Tech from "../../components/Tech";
 import Others from "../../components/Others";
+import { HiDownload, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
+import resumePDF from "../../assets/jamen-mama-resume.pdf";
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -57,21 +59,34 @@ function App() {
           <div className="absolute z-0 bottom-0 left-0 w-full bottom-fade-bg h-[400px]"></div>
         </div>
         <div className="section-container py-[100px] context-fade">
-          <p className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-[Exo]">
-            EXPERIENCE
+          <p className="text-white text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-[Exo] mb-4">
+            EXPERIENCES
           </p>
+          <a
+            href={resumePDF}
+            download="resume.pdf"
+            className="w-fit flex gap-2 items-center py-2 px-4 bg-[#004994] hover:bg-transparent rounded-md text-white border border-[#004994] mx-auto "
+          >
+            <HiDownload /> Download Resume
+          </a>
         </div>
         <section className="bg-[#0f0e1f]">
-          <div className="section-container pt-[100px] pb-[30px] flex flex-col justify-center items-center">
+          <div className="section-container pt-[100px] pb-[30px] flex gap-2 flex-col justify-center items-center">
             <p className="text-white text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-[Exo] mb-6">
-              Contact
+              Contacts
             </p>
             <a
               href="mailto:jamen-dev@gmail.com"
-              className="text-white mb-auto text-center text-lg sm:text-2xl md:text-3xl opacity-80 leading-[50px] font-[Exo] hover:underline"
+              className="flex gap-2 items-center text-white mb-auto text-center text-lg sm:text-xl md:text-2xl opacity-80 leading-[50px] font-[Exo] hover:underline"
             >
-              jamen-dev@gmail.com
+              <HiOutlineMail />: jamen-dev@gmail.com
             </a>
+            <p
+              href="tel:+639950315549"
+              className="cursor-pointer flex gap-2 items-center text-white mb-auto text-center text-md sm:text-xl md:text-2xl opacity-80 leading-[50px] font-[Exo] hover:underline"
+            >
+              <HiOutlinePhone />: +639950315549 (PH)
+            </p>
             <p className="text-white text-center text-lg opacity-80 leading-[50px] font-[Exo] mt-8">
               © 2025, Jamen Mama, All Rights Reserved
             </p>

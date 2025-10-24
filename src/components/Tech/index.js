@@ -14,7 +14,7 @@ const Tech = (props) => {
         PREPERED TECH
       </h2>
       <p className="text-white text-lg sm:text-2xl md:text-3xl opacity-80 leading-[50px] w-3/5 m-auto">
-        ReactJS, Angular, Tailwind, Restful APIs, Redux, Javacript, Sass and
+        ReactJS, VuewJS, Tailwind, Restful APIs, Redux, Javacript, Sass and
         more.
       </p>
     </section>
