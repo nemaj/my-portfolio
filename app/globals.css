@@ -104,12 +104,7 @@ main {
 }
 
 .hero-copy,
-.hero-panel,
-.section-heading,
-.skill-cloud,
-.project-card,
-.timeline-item,
-.contact > * {
+.hero-panel {
   animation: enter-up 760ms both;
 }
 
@@ -304,6 +299,25 @@ h3 {
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 30px 80px rgba(23, 33, 27, 0.17);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 720ms ease,
+    transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal.project-card.is-visible:hover {
+  transform: translateY(-6px);
 }
 
 .project-visual {

@@ -1,3 +1,5 @@
+import ScrollReveal from "./components/ScrollReveal";
+
 const projects = [
   {
     name: "Partbnb",
@@ -219,7 +221,11 @@ export default function Home() {
         </aside>
       </section>
 
-      <section className="section section--skills" aria-labelledby="skills-title">
+      <ScrollReveal
+        as="section"
+        className="section section--skills"
+        labelledBy="skills-title"
+      >
         <div className="section-heading">
           <p className="eyebrow">Core toolkit</p>
           <h2 id="skills-title">Modern frontend engineering, from polished UI to API-heavy dashboards.</h2>
@@ -229,16 +235,26 @@ export default function Home() {
             <span key={skill}>{skill}</span>
           ))}
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="section" id="projects" aria-labelledby="projects-title">
+      <ScrollReveal
+        as="section"
+        className="section"
+        id="projects"
+        labelledBy="projects-title"
+      >
         <div className="section-heading">
           <p className="eyebrow">Selected work</p>
           <h2 id="projects-title">Projects shaped around real product workflows.</h2>
         </div>
         <div className="project-grid">
-          {projects.map((project) => (
-            <article className="project-card" key={project.name}>
+          {projects.map((project, index) => (
+            <ScrollReveal
+              as="article"
+              className="project-card"
+              delay={index * 90}
+              key={project.name}
+            >
               <ProjectVisual
                 name={project.name}
                 accent={project.accent}
@@ -260,31 +276,46 @@ export default function Home() {
                   <span aria-hidden="true">-&gt;</span>
                 </a>
               </div>
-            </article>
+            </ScrollReveal>
           ))}
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="section section--experience" id="experience" aria-labelledby="experience-title">
+      <ScrollReveal
+        as="section"
+        className="section section--experience"
+        id="experience"
+        labelledBy="experience-title"
+      >
         <div className="section-heading">
           <p className="eyebrow">Experience</p>
           <h2 id="experience-title">A steady path through agency, startup, and enterprise product work.</h2>
         </div>
         <div className="timeline">
-          {timeline.map((item) => (
-            <article className="timeline-item" key={`${item.company}-${item.period}`}>
+          {timeline.map((item, index) => (
+            <ScrollReveal
+              as="article"
+              className="timeline-item"
+              delay={index * 110}
+              key={`${item.company}-${item.period}`}
+            >
               <p>{item.period}</p>
               <div>
                 <h3>{item.role}</h3>
                 <strong>{item.company}</strong>
                 <span>{item.details}</span>
               </div>
-            </article>
+            </ScrollReveal>
           ))}
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="contact" id="contact" aria-labelledby="contact-title">
+      <ScrollReveal
+        as="section"
+        className="contact"
+        id="contact"
+        labelledBy="contact-title"
+      >
         <div>
           <p className="eyebrow">Contact</p>
           <h2 id="contact-title">Let&apos;s build fast, maintainable frontend experiences.</h2>
@@ -298,7 +329,7 @@ export default function Home() {
           <a href="tel:+639950315549">+63 995 031 5549</a>
           <a href="https://github.com/nemaj">github.com/nemaj</a>
         </div>
-      </section>
+      </ScrollReveal>
     </main>
   );
 }
