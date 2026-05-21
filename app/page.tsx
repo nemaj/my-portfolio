@@ -7,7 +7,7 @@ const projects = [
     summary:
       "Built public-facing and admin interfaces, integrated REST APIs, server-side rendering, analytics tracking, and shared Git workflows for a four-person product team.",
     accent: "green",
-    preview: "booking",
+    preview: "booking"
   },
   {
     name: "LifeDirect",
@@ -17,7 +17,7 @@ const projects = [
     summary:
       "Developed responsive dashboards and policy comparison flows with reusable React patterns and API-driven customer journeys.",
     accent: "blue",
-    preview: "comparison",
+    preview: "comparison"
   },
   {
     name: "MotorShare",
@@ -27,7 +27,7 @@ const projects = [
     summary:
       "Implemented client-side routing, dynamic content, database-driven interfaces, and responsive product pages for vehicle listings and customer flows.",
     accent: "coral",
-    preview: "listing",
+    preview: "listing"
   },
   {
     name: "MRE BlackFin Tools",
@@ -37,7 +37,7 @@ const projects = [
     summary:
       "Created modular dashboards and reporting interfaces with charting, performance optimization, and maintainable feature organization.",
     accent: "ink",
-    preview: "analytics",
+    preview: "analytics"
   },
   {
     name: "Little Ones Admin",
@@ -47,7 +47,7 @@ const projects = [
     summary:
       "Built reusable admin components, Firebase-backed data screens, and state management patterns for efficient operational workflows.",
     accent: "green",
-    preview: "admin",
+    preview: "admin"
   },
   {
     name: "Insurance Admin",
@@ -57,7 +57,7 @@ const projects = [
     summary:
       "Contributed to quote-engine management workflows, data-heavy screens, and internal tools for insurance operations.",
     accent: "blue",
-    preview: "quote",
+    preview: "quote"
   },
   {
     name: "Penny CRM",
@@ -67,8 +67,8 @@ const projects = [
     summary:
       "Designed CRM UI components and API integrations to support customer management, data querying, and reusable product workflows.",
     accent: "coral",
-    preview: "crm",
-  },
+    preview: "crm"
+  }
 ];
 
 const skills = [
@@ -88,7 +88,7 @@ const skills = [
   "SSR",
   "Responsive UI",
   "Node.js",
-  "Git",
+  "Git"
 ];
 
 const timeline = [
@@ -97,38 +97,35 @@ const timeline = [
     company: "BlackFin Technology",
     role: "Frontend Developer",
     details:
-      "Delivered startup and enterprise web applications across React, Next.js, Angular, TypeScript, Firebase, dashboards, admin tools, and customer-facing products.",
+      "Delivered startup and enterprise web applications across React, Next.js, Angular, TypeScript, Firebase, dashboards, admin tools, and customer-facing products."
   },
   {
     period: "Jul 2017 - Jan 2018",
     company: "Dev Partners Philippines",
     role: "Frontend Developer / Trainee",
     details:
-      "Developed internal systems, employee portals, client websites, WordPress features, and CRM interfaces using AngularJS, Bootstrap, SASS, JavaScript, Node.js, and REST APIs.",
+      "Developed internal systems, employee portals, client websites, WordPress features, and CRM interfaces using AngularJS, Bootstrap, SASS, JavaScript, Node.js, and REST APIs."
   },
   {
     period: "May 2017 - Jun 2017",
     company: "Segworks Technologies Corporation",
     role: "Website Developer Intern",
     details:
-      "Fixed bugs and provided technical support for a Hospital Information System using HTML, CSS, JavaScript, PHP, MySQL, and Git workflows.",
-  },
+      "Fixed bugs and provided technical support for a Hospital Information System using HTML, CSS, JavaScript, PHP, MySQL, and Git workflows."
+  }
 ];
 
 function ProjectVisual({
   name,
   accent,
-  preview,
+  preview
 }: {
   name: string;
   accent: string;
   preview: string;
 }) {
   return (
-    <div
-      className={`project-visual project-visual--${accent}`}
-      aria-hidden="true"
-    >
+    <div className={`project-visual project-visual--${accent}`} aria-hidden="true">
       <div className="browser-bar">
         <span />
         <span />
@@ -188,9 +185,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-copy">
           <p className="eyebrow">Frontend Developer</p>
-          <h1>
-            React and Next.js interfaces for products people actually use.
-          </h1>
+          <h1>React and Next.js interfaces for products people actually use.</h1>
           <p className="hero-lede">
             I am Jamen Mama, a frontend developer with 8+ years of experience
             building scalable web applications, admin tools, dashboards, and
@@ -198,16 +193,10 @@ export default function Home() {
             Firebase, and REST APIs.
           </p>
           <div className="hero-actions" aria-label="Contact links">
-            <a
-              className="button button--primary"
-              href="mailto:jamen.dev@gmail.com"
-            >
+            <a className="button button--primary" href="mailto:jamen.dev@gmail.com">
               Email me
             </a>
-            <a
-              className="button button--secondary"
-              href="https://github.com/nemaj"
-            >
+            <a className="button button--secondary" href="https://github.com/nemaj">
               GitHub
             </a>
           </div>
@@ -220,9 +209,7 @@ export default function Home() {
           </div>
           <div className="metric metric--dark">
             <span>7</span>
-            <p>
-              Featured projects across marketplaces, CRM, admin, and insurance
-            </p>
+            <p>Featured projects across marketplaces, CRM, admin, and insurance</p>
           </div>
           <div className="hero-stack">
             {["React", "Next.js", "TypeScript", "Firebase"].map((item) => (
@@ -232,16 +219,10 @@ export default function Home() {
         </aside>
       </section>
 
-      <section
-        className="section section--skills"
-        aria-labelledby="skills-title"
-      >
+      <section className="section section--skills" aria-labelledby="skills-title">
         <div className="section-heading">
           <p className="eyebrow">Core toolkit</p>
-          <h2 id="skills-title">
-            Modern frontend engineering, from polished UI to API-heavy
-            dashboards.
-          </h2>
+          <h2 id="skills-title">Modern frontend engineering, from polished UI to API-heavy dashboards.</h2>
         </div>
         <div className="skill-cloud">
           {skills.map((skill) => (
@@ -250,16 +231,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        className="section"
-        id="projects"
-        aria-labelledby="projects-title"
-      >
+      <section className="section" id="projects" aria-labelledby="projects-title">
         <div className="section-heading">
           <p className="eyebrow">Selected work</p>
-          <h2 id="projects-title">
-            Projects shaped around real product workflows.
-          </h2>
+          <h2 id="projects-title">Projects shaped around real product workflows.</h2>
         </div>
         <div className="project-grid">
           {projects.map((project) => (
@@ -275,10 +250,7 @@ export default function Home() {
                   <h3>{project.name}</h3>
                 </div>
                 <p>{project.summary}</p>
-                <div
-                  className="tag-list"
-                  aria-label={`${project.name} technology stack`}
-                >
+                <div className="tag-list" aria-label={`${project.name} technology stack`}>
                   {project.stack.map((item) => (
                     <span key={item}>{item}</span>
                   ))}
@@ -293,23 +265,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        className="section section--experience"
-        id="experience"
-        aria-labelledby="experience-title"
-      >
+      <section className="section section--experience" id="experience" aria-labelledby="experience-title">
         <div className="section-heading">
           <p className="eyebrow">Experience</p>
-          <h2 id="experience-title">
-            A steady path through agency, startup, and enterprise product work.
-          </h2>
+          <h2 id="experience-title">A steady path through agency, startup, and enterprise product work.</h2>
         </div>
         <div className="timeline">
           {timeline.map((item) => (
-            <article
-              className="timeline-item"
-              key={`${item.company}-${item.period}`}
-            >
+            <article className="timeline-item" key={`${item.company}-${item.period}`}>
               <p>{item.period}</p>
               <div>
                 <h3>{item.role}</h3>
@@ -324,13 +287,10 @@ export default function Home() {
       <section className="contact" id="contact" aria-labelledby="contact-title">
         <div>
           <p className="eyebrow">Contact</p>
-          <h2 id="contact-title">
-            Let&apos;s build fast, maintainable frontend experiences.
-          </h2>
-          <p style={{ marginTop: "10px" }}>
-            Based in South Cotabato, Philippines. Available for frontend roles
-            and product teams that need React, Next.js, Angular, and TypeScript
-            depth.
+          <h2 id="contact-title">Let&apos;s build fast, maintainable frontend experiences.</h2>
+          <p>
+            Based in South Cotabato, Philippines. Available for frontend roles and
+            product teams that need React, Next.js, Angular, and TypeScript depth.
           </p>
         </div>
         <div className="contact-links">
