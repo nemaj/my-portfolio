@@ -6,10 +6,12 @@ import Projects from "@/components/sections/Projects";
 import TechnicalExpertise from "@/components/sections/TechnicalExpertise";
 import Resume from "@/components/sections/Resume";
 import Contact from "@/components/sections/Contact";
+import ScrollTargetHandler from "@/components/layout/ScrollTargetHandler";
 
 export default function Home() {
   return (
     <main>
+      <ScrollTargetHandler />
       <Hero />
       <About />
       <Experience />

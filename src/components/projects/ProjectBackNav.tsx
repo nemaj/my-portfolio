@@ -1,15 +1,31 @@
-import Link from "next/link";
+"use client";
+
+import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import styles from "./ProjectBackNav.module.scss";
 
 export default function ProjectBackNav() {
+  const router = useRouter();
+
+  const handleBackToProjects = () => {
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("scrollTarget", "projects");
+    }
+
+    router.push("/", { scroll: false });
+  };
+
   return (
     <nav className={styles.backNav} aria-label="Project navigation">
       <div className="section-container">
-        <Link href="/#projects" className={styles.backLink}>
+        <button
+          type="button"
+          onClick={handleBackToProjects}
+          className={styles.backLink}
+        >
           <ArrowLeft size={16} />
           Back to Projects
-        </Link>
+        </button>
       </div>
     </nav>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { profile } from "@/data/profile";
@@ -19,6 +20,8 @@ const navLinks = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -26,8 +29,21 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const navigateToSection = (section: string) => {
+    if (pathname === "/") {
+      scrollToSection(section);
+      return;
+    }
+
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("scrollTarget", section);
+    }
+
+    router.push("/", { scroll: false });
+  };
+
   const handleNav = (href: string) => {
-    scrollToSection(href);
+    navigateToSection(href);
     setMobileOpen(false);
   };
 

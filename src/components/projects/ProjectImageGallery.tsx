@@ -2,41 +2,18 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
-import Slider from "react-slick";
-import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  X,
+  ZoomIn,
+} from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import styles from "./ProjectImageGallery.module.scss";
 
 interface ProjectImageGalleryProps {
   images: StaticImageData[];
   title: string;
-}
-
-interface SlickArrowProps {
-  className?: string;
-  style?: React.CSSProperties;
-  onClick?: () => void;
-  direction: "prev" | "next";
-}
-
-function SlickArrow({ className, style, onClick, direction }: SlickArrowProps) {
-  return (
-    <button
-      type="button"
-      className={`${styles.arrow} ${styles[direction]} ${className ?? ""}`}
-      style={style}
-      onClick={onClick}
-      aria-label={direction === "prev" ? "Previous image" : "Next image"}
-    >
-      {direction === "prev" ? (
-        <ChevronLeft size={22} />
-      ) : (
-        <ChevronRight size={22} />
-      )}
-    </button>
-  );
 }
 
 export default function ProjectImageGallery({
@@ -47,11 +24,25 @@ export default function ProjectImageGallery({
 
   const closeModal = useCallback(() => setActiveIndex(null), []);
 
+  const showPrev = useCallback(() => {
+    setActiveIndex((current) =>
+      current === null ? null : (current - 1 + images.length) % images.length,
+    );
+  }, [images.length]);
+
+  const showNext = useCallback(() => {
+    setActiveIndex((current) =>
+      current === null ? null : (current + 1) % images.length,
+    );
+  }, [images.length]);
+
   useEffect(() => {
     if (activeIndex === null) return;
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
     };
 
     document.body.style.overflow = "hidden";
@@ -61,56 +52,50 @@ export default function ProjectImageGallery({
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [activeIndex, closeModal]);
+  }, [activeIndex, closeModal, showPrev, showNext]);
 
   if (!images.length) return null;
-
-  const settings = {
-    dots: true,
-    infinite: images.length > 1,
-    speed: 450,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    adaptiveHeight: true,
-    arrows: images.length > 1,
-    prevArrow: <SlickArrow direction="prev" />,
-    nextArrow: <SlickArrow direction="next" />,
-  };
 
   return (
     <>
       <div className={styles.gallery}>
         <div className={styles.header}>
           <h2 className={styles.title}>Project Screenshots</h2>
-          <p className={styles.hint}>Click any image to view full size</p>
+          <p className={styles.hint}>
+            {images.length} screenshot{images.length === 1 ? "" : "s"} — click any
+            image to view full size
+          </p>
         </div>
 
-        <Slider {...settings} className={styles.slider}>
+        <div className={styles.grid}>
           {images.map((image, index) => (
-            <div key={image.src} className={styles.slide}>
-              <button
-                type="button"
-                className={styles.slideButton}
-                onClick={() => setActiveIndex(index)}
-                aria-label={`View screenshot ${index + 1} of ${images.length} for ${title}`}
+            <button
+              key={image.src}
+              type="button"
+              className={styles.gridItem}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`View screenshot ${index + 1} of ${images.length} for ${title}`}
+            >
+              <div
+                className={styles.imageFrame}
+                style={{ aspectRatio: `${image.width} / ${image.height}` }}
               >
-                <div className={styles.imageFrame}>
-                  <Image
-                    src={image}
-                    alt={`${title} screenshot ${index + 1}`}
-                    className={styles.slideImage}
-                    sizes="(max-width: 768px) 100vw, 900px"
-                    priority={index === 0}
-                  />
-                </div>
-                <span className={styles.zoomHint}>
-                  <ZoomIn size={16} />
-                  View larger
+                <Image
+                  src={image}
+                  alt={`${title} screenshot ${index + 1}`}
+                  width={image.width}
+                  height={image.height}
+                  className={styles.gridImage}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={index < 3}
+                />
+                <span className={styles.overlay}>
+                  <ZoomIn size={20} />
                 </span>
-              </button>
-            </div>
+              </div>
+            </button>
           ))}
-        </Slider>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -135,8 +120,36 @@ export default function ProjectImageGallery({
               <X size={22} />
             </button>
 
+            {images.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  className={`${styles.navButton} ${styles.navPrev}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    showPrev();
+                  }}
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.navButton} ${styles.navNext}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    showNext();
+                  }}
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              </>
+            )}
+
             <motion.div
               className={styles.modalContent}
+              key={activeIndex}
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
@@ -146,6 +159,8 @@ export default function ProjectImageGallery({
               <Image
                 src={images[activeIndex]}
                 alt={`${title} screenshot ${activeIndex + 1}`}
+                width={images[activeIndex].width}
+                height={images[activeIndex].height}
                 className={styles.modalImage}
                 sizes="100vw"
                 priority
