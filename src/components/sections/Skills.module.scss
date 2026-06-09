@@ -29,6 +29,9 @@
 }
 
 .skill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: $radius-sm;
   background: rgba(255, 255, 255, 0.03);
@@ -42,5 +45,15 @@
     color: $text-primary;
     border-color: $border-accent;
     background: rgba(59, 130, 246, 0.08);
+
+    .skillIcon {
+      color: $accent-blue-light;
+    }
   }
+}
+
+.skillIcon {
+  flex-shrink: 0;
+  color: $text-muted;
+  transition: color $transition-fast;
 }

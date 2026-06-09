@@ -71,8 +71,8 @@ export default function RootLayout({
     },
     url: "https://jamenmama.dev",
     sameAs: [
-      "https://linkedin.com/in/jamenmama",
-      "https://github.com/jamenmama",
+      "https://www.linkedin.com/in/jamenmama/",
+      "https://github.com/nemaj",
     ],
     knowsAbout: [
       "React.js",

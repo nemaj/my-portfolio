@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import type { Project } from "@/types";
 import Badge from "@/components/ui/Badge";
+import ProjectImageGallery from "@/components/projects/ProjectImageGallery";
 import styles from "./ProjectCaseStudy.module.scss";
 
 interface ProjectCaseStudyProps {
@@ -13,7 +14,9 @@ interface ProjectCaseStudyProps {
 export default function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
   return (
     <article>
-      <section className={`${styles.hero} bg-gradient-to-br ${project.gradient}`}>
+      <section
+        className={`${styles.hero} bg-gradient-to-br ${project.gradient}`}
+      >
         <div className="section-container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -22,7 +25,6 @@ export default function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
           >
             <div className={styles.meta}>
               <Badge variant="accent">{project.category}</Badge>
-              <span className={styles.year}>{project.year}</span>
               <span className={styles.role}>{project.role}</span>
             </div>
             <h1 className={styles.title}>{project.title}</h1>
@@ -79,24 +81,19 @@ export default function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
             </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className={styles.preview}
-          >
-            <div
-              className={`${styles.previewImage} bg-gradient-to-br ${project.gradient}`}
+          {project.images && project.images.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span
-                className={styles.previewInitial}
-                style={{ color: project.accentColor }}
-              >
-                {project.title.charAt(0)}
-              </span>
-            </div>
-          </motion.div>
+              <ProjectImageGallery
+                images={project.images}
+                title={project.title}
+              />
+            </motion.div>
+          )}
         </div>
       </section>
     </article>

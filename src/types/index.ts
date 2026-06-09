@@ -1,10 +1,19 @@
+import type { StaticImageData } from "next/image";
+
+export type ProjectHeadlineCategory =
+  | "SaaS Products"
+  | "Marketplaces"
+  | "FinTech / InsurTech"
+  | "Enterprise Applications"
+  | "Internal Business Tools";
+
 export type ProjectCategory =
-  | "SaaS"
-  | "Enterprise"
-  | "Dashboard"
-  | "CRM"
-  | "Booking Platform"
-  | "Insurance";
+  | "Marketplace / Rental Platform"
+  | "SaaS CRM Platform"
+  | "Enterprise / Financial Tool"
+  | "Marketplace Platform"
+  | "Admin Dashboard / Internal SaaS"
+  | "InsurTech / Financial Services Platform";
 
 export interface Profile {
   name: string;
@@ -49,6 +58,7 @@ export interface Project {
   slug: string;
   title: string;
   category: ProjectCategory;
+  headlineCategory: ProjectHeadlineCategory;
   description: string;
   longDescription: string;
   technologies: string[];
@@ -60,6 +70,7 @@ export interface Project {
   accentColor: string;
   year: string;
   role: string;
+  images?: StaticImageData[];
 }
 
 export interface Expertise {

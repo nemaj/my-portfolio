@@ -8,8 +8,15 @@ import { projects, projectCategories } from "@/data/projects";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
 import styles from "./Projects.module.scss";
+import Image from "next/image";
 
-function ProjectCard({ project, index }: { project: (typeof projects)[0]; index: number }) {
+function ProjectCard({
+  project,
+  index,
+}: {
+  project: (typeof projects)[0];
+  index: number;
+}) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [glowPos, setGlowPos] = useState({ x: 50, y: 50 });
 
@@ -40,20 +47,36 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
       }
     >
       <Link href={`/projects/${project.slug}`} className={styles.cardLink}>
-        <div className={`${styles.imageWrapper} bg-gradient-to-br ${project.gradient}`}>
+        <div
+          className={`${styles.imageWrapper} bg-gradient-to-br ${project.gradient}`}
+        >
           <div className={styles.imageOverlay}>
             <span className={styles.viewCase}>View Case Study</span>
             <ArrowUpRight size={24} />
           </div>
-          <div className={styles.projectInitial}>
-            {project.title.charAt(0)}
-          </div>
+          {project?.images?.length ? (
+            <Image
+              src={`${project.images ? project.images[0].src : "/assets/placeholder.png"}`}
+              alt={project.title}
+              width={400}
+              height={300}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "top",
+              }}
+            />
+          ) : (
+            <div className={styles.projectInitial}>
+              {project.title.charAt(0)}
+            </div>
+          )}
         </div>
 
         <div className={styles.cardContent}>
           <div className={styles.cardMeta}>
             <Badge variant="accent">{project.category}</Badge>
-            <span className={styles.year}>{project.year}</span>
           </div>
           <h3 className={styles.cardTitle}>{project.title}</h3>
           <p className={styles.cardDesc}>{project.description}</p>
@@ -73,10 +96,10 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
 export default function Projects() {
   const [filter, setFilter] = useState<string>("All");
 
-  const filtered =
-    filter === "All"
-      ? projects
-      : projects.filter((p) => p.category === filter);
+  const filtered = projects.filter((p) => {
+    const matchesCategory = filter === "All" || p.headlineCategory === filter;
+    return matchesCategory;
+  });
 
   return (
     <section id="projects" className={`section-padding ${styles.projects}`}>

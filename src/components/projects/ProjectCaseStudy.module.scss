@@ -58,6 +58,7 @@
 
 .content {
   background: $bg-primary;
+  padding-top: 3rem;
 }
 
 .grid {
@@ -108,26 +109,4 @@
   flex-shrink: 0;
   color: $accent-blue;
   margin-top: 0.125rem;
-}
-
-.preview {
-  @include glass-card;
-  border-radius: $radius-xl;
-  overflow: hidden;
-}
-
-.previewImage {
-  height: 400px;
-  @include flex-center;
-
-  @media (min-width: 768px) {
-    height: 480px;
-  }
-}
-
-.previewInitial {
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(6rem, 15vw, 12rem);
-  font-weight: 700;
-  opacity: 0.3;
 }

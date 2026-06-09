@@ -20,6 +20,17 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const body = [
+      `Name: ${formState.name}`,
+      `Email: ${formState.email}`,
+      "",
+      formState.message,
+    ].join("\n");
+
+    const mailtoLink = `mailto:${profile.email}?subject=${encodeURIComponent(formState.subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
     setFormState({ name: "", email: "", subject: "", message: "" });
