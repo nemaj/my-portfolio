@@ -110,9 +110,15 @@
   @include flex-center;
   flex-direction: column;
   gap: 0.5rem;
-  background: rgba(5, 8, 22, 0.7);
+  background-color: rgba(5, 8, 22, 0.45);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
   opacity: 0;
-  transition: opacity $transition-base;
+  transition:
+    opacity $transition-base,
+    transform $transition-base;
   color: $text-primary;
   z-index: 2;
 }

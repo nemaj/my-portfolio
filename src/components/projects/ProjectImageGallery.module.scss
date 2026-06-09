@@ -1,0 +1,200 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.gallery {
+  @include glass-card;
+  border-radius: $radius-xl;
+  padding: 2rem 1.5rem 2.5rem;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    padding: 2.5rem 2rem 3rem;
+  }
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: 0.375rem;
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: $text-muted;
+}
+
+.slider {
+  :global(.slick-list) {
+    border-radius: $radius-lg;
+    overflow: hidden;
+  }
+
+  :global(.slick-dots) {
+    bottom: -2rem;
+
+    li button:before {
+      color: $text-muted;
+      opacity: 0.45;
+      font-size: 9px;
+    }
+
+    :global(li.slick-active) button:before {
+      color: $accent-blue-light;
+      opacity: 1;
+    }
+  }
+}
+
+.slide {
+  outline: none;
+}
+
+.slideButton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  min-height: 240px;
+  max-height: 520px;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid $border-subtle;
+  background: rgba(255, 255, 255, 0.02);
+
+  @media (min-width: 768px) {
+    min-height: 360px;
+  }
+}
+
+.slideImage {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+  background: #0a0f1f;
+}
+
+.zoomHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: $text-muted;
+  transition: color $transition-fast;
+
+  .slideButton:hover & {
+    color: $accent-blue-light;
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid $border-subtle;
+  background: rgba(5, 8, 22, 0.85);
+  color: $text-primary;
+  cursor: pointer;
+  transition: background $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: $border-accent;
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+.prev {
+  left: 0.75rem;
+}
+
+.next {
+  right: 0.75rem;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(2, 4, 12, 0.88);
+  backdrop-filter: blur(8px);
+  cursor: zoom-out;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 201;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid $border-subtle;
+  background: rgba(5, 8, 22, 0.9);
+  color: $text-primary;
+  cursor: pointer;
+  transition: background $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: $border-accent;
+  }
+}
+
+.modalContent {
+  position: relative;
+  width: min(100%, 1200px);
+  max-height: calc(100vh - 4rem);
+  cursor: default;
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 6rem);
+  object-fit: contain;
+  border-radius: $radius-lg;
+  border: 1px solid $border-subtle;
+  background: #0a0f1f;
+}
+
+.modalCaption {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: $text-muted;
+}

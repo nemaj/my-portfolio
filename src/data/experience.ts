@@ -5,22 +5,49 @@ export const experiences: Experience[] = [
     id: "blackfin",
     company: "BLACKFIN TECHNOLOGY",
     role: "Frontend Developer",
-    period: "Jan 2018 — Apr 2026",
+    period: "Jan 2018 — May 2026",
     technologies: [
       "React.js",
       "Next.js",
       "Angular",
       "TypeScript",
+      "Context API",
       "Redux Toolkit",
       "Tailwind CSS",
+      "Bootstrap",
+      "Material UI",
       "SASS",
       "Firebase",
     ],
     projects: [
       {
-        name: "Partbnb",
-        description: "Booking platform interfaces with SSR and dynamic listings.",
-        technologies: ["Angular", "TypeScript", "Material UI", "SASS", "REST APIs", "SSR"],
+        name: "MotorShare NZ",
+        description: "Vehicle sharing platform with real-time booking flows.",
+        technologies: [
+          "React.js",
+          "Next.js",
+          "Firebase",
+          "SASS",
+          "Context API",
+        ],
+        highlights: [
+          "Built vehicle sharing platform with booking and availability",
+          "Implemented Server-Side Rendering (SSR) for dynamic data fetching and improved SEO.",
+          "Designed responsive interfaces for mobile-first users",
+        ],
+      },
+      {
+        name: "PartBnB",
+        description:
+          "Booking platform interfaces with SSR and dynamic listings.",
+        technologies: [
+          "Angular",
+          "TypeScript",
+          "Material UI",
+          "SASS",
+          "REST APIs",
+          "SSR",
+        ],
         highlights: [
           "Built booking platform interfaces for property reservations",
           "Implemented server-side rendering for SEO and performance",
@@ -28,9 +55,17 @@ export const experiences: Experience[] = [
         ],
       },
       {
-        name: "LifeDirect",
-        description: "Insurance platform with dynamic dashboards and policy management.",
-        technologies: ["React.js", "TypeScript", "REST APIs"],
+        name: "LifeDirect NZ",
+        description:
+          "Insurance platform with dynamic dashboards and policy management.",
+        technologies: [
+          "React.js",
+          "TypeScript",
+          "Bootstrap",
+          "Context API",
+          "REST APIs",
+          "SASS",
+        ],
         highlights: [
           "Developed insurance platform UI with complex form workflows",
           "Built dynamic dashboards for policy and claims management",
@@ -38,19 +73,15 @@ export const experiences: Experience[] = [
         ],
       },
       {
-        name: "MotorShare",
-        description: "Vehicle sharing platform with real-time booking flows.",
-        technologies: ["React.js", "Next.js", "Firebase", "SASS"],
-        highlights: [
-          "Built vehicle sharing platform with booking and availability",
-          "Integrated Firebase for authentication and real-time updates",
-          "Designed responsive interfaces for mobile-first users",
-        ],
-      },
-      {
-        name: "Little Ones Admin Panel",
+        name: "Little Ones Admin",
         description: "Admin dashboard for content and user management.",
-        technologies: ["Next.js", "Tailwind CSS", "Firebase"],
+        technologies: [
+          "Next.js",
+          "React.js",
+          "Tailwind CSS",
+          "Firebase",
+          "TypeScript",
+        ],
         highlights: [
           "Developed admin dashboard with role-based access",
           "Built data tables and content management interfaces",
@@ -58,9 +89,15 @@ export const experiences: Experience[] = [
         ],
       },
       {
-        name: "PennyCRM",
+        name: "Penny CRM",
         description: "CRM application with advanced state management.",
-        technologies: ["React.js", "Redux Toolkit", "RTK Query", "TypeScript"],
+        technologies: [
+          "React.js",
+          "Tailwind CSS",
+          "Redux Toolkit",
+          "RTK Query",
+          "TypeScript",
+        ],
         highlights: [
           "Built CRM application with Redux Toolkit and RTK Query",
           "Implemented efficient data fetching and caching strategies",
@@ -70,7 +107,7 @@ export const experiences: Experience[] = [
       {
         name: "MRE Blackfin Tools",
         description: "Internal reporting dashboards with data visualization.",
-        technologies: ["Next.js", "Redux Toolkit"],
+        technologies: ["React.js", "Redux Toolkit", "TypeScript", "SASS"],
         highlights: [
           "Developed internal reporting dashboards for business analytics",
           "Built data visualization components for KPI tracking",

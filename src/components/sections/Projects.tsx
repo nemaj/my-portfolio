@@ -4,14 +4,19 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { projects, projectCategories, contributionFilters } from "@/data/projects";
-import { contributionLabels } from "@/lib/site";
-import type { ProjectContribution } from "@/types";
+import { projects, projectCategories } from "@/data/projects";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
 import styles from "./Projects.module.scss";
+import Image from "next/image";
 
-function ProjectCard({ project, index }: { project: (typeof projects)[0]; index: number }) {
+function ProjectCard({
+  project,
+  index,
+}: {
+  project: (typeof projects)[0];
+  index: number;
+}) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [glowPos, setGlowPos] = useState({ x: 50, y: 50 });
 
@@ -42,21 +47,36 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
       }
     >
       <Link href={`/projects/${project.slug}`} className={styles.cardLink}>
-        <div className={`${styles.imageWrapper} bg-gradient-to-br ${project.gradient}`}>
+        <div
+          className={`${styles.imageWrapper} bg-gradient-to-br ${project.gradient}`}
+        >
           <div className={styles.imageOverlay}>
             <span className={styles.viewCase}>View Case Study</span>
             <ArrowUpRight size={24} />
           </div>
-          <div className={styles.projectInitial}>
-            {project.title.charAt(0)}
-          </div>
+          {project?.images?.length ? (
+            <Image
+              src={`${project.images ? project.images[0].src : "/assets/placeholder.png"}`}
+              alt={project.title}
+              width={400}
+              height={300}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "top",
+              }}
+            />
+          ) : (
+            <div className={styles.projectInitial}>
+              {project.title.charAt(0)}
+            </div>
+          )}
         </div>
 
         <div className={styles.cardContent}>
           <div className={styles.cardMeta}>
             <Badge variant="accent">{project.category}</Badge>
-            <Badge variant="outline">{contributionLabels[project.contribution]}</Badge>
-            <span className={styles.year}>{project.year}</span>
           </div>
           <h3 className={styles.cardTitle}>{project.title}</h3>
           <p className={styles.cardDesc}>{project.description}</p>
@@ -75,15 +95,10 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
 
 export default function Projects() {
   const [filter, setFilter] = useState<string>("All");
-  const [contributionFilter, setContributionFilter] = useState<
-    ProjectContribution | "all"
-  >("all");
 
   const filtered = projects.filter((p) => {
-    const matchesCategory = filter === "All" || p.category === filter;
-    const matchesContribution =
-      contributionFilter === "all" || p.contribution === contributionFilter;
-    return matchesCategory && matchesContribution;
+    const matchesCategory = filter === "All" || p.headlineCategory === filter;
+    return matchesCategory;
   });
 
   return (
@@ -103,18 +118,6 @@ export default function Projects() {
               className={`${styles.filterBtn} ${filter === cat ? styles.active : ""}`}
             >
               {cat}
-            </button>
-          ))}
-        </div>
-
-        <div className={styles.filters}>
-          {contributionFilters.map((item) => (
-            <button
-              key={item.value}
-              onClick={() => setContributionFilter(item.value)}
-              className={`${styles.filterBtn} ${contributionFilter === item.value ? styles.active : ""}`}
-            >
-              {item.label}
             </button>
           ))}
         </div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { skillGroups } from "@/data/skills";
+import SkillIcon from "@/components/ui/SkillIcon";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import styles from "./Skills.module.scss";
@@ -31,6 +32,7 @@ export default function Skills() {
               <div className={styles.skillList}>
                 {group.skills.map((skill) => (
                   <span key={skill} className={styles.skill}>
+                    <SkillIcon skill={skill} size={15} className={styles.skillIcon} />
                     {skill}
                   </span>
                 ))}

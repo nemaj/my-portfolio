@@ -5,6 +5,7 @@ import { getProjectBySlug, getAllProjectSlugs } from "@/data/projects";
 import MagneticButton from "@/components/ui/MagneticButton";
 import ProjectBackNav from "@/components/projects/ProjectBackNav";
 import ProjectCaseStudy from "@/components/projects/ProjectCaseStudy";
+import ProjectScrollToTop from "@/components/projects/ProjectScrollToTop";
 import type { Metadata } from "next";
 
 interface ProjectPageProps {
@@ -45,13 +46,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <main className="min-h-screen bg-bg-primary">
+      <ProjectScrollToTop slug={slug} />
       <ProjectBackNav />
 
       <div className="pt-[8.5rem]">
         <ProjectCaseStudy project={project} />
       </div>
 
-      <div className="section-container pb-20 pt-8">
+      {/* <div className="section-container pb-20 pt-8">
         <div className="flex flex-wrap gap-4 justify-center">
           {project.liveDemo && (
             <MagneticButton variant="primary" href={project.liveDemo}>
@@ -66,7 +68,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </MagneticButton>
           )}
         </div>
-      </div>
+      </div> */}
     </main>
   );
 }

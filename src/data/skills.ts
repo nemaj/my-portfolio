@@ -8,11 +8,13 @@ export const skillGroups: SkillGroup[] = [
       "Next.js",
       "Angular",
       "TypeScript",
-      "JavaScript",
+      "JavaScript (ES6+)",
       "HTML5",
       "CSS3",
       "Sass",
       "Tailwind CSS",
+      "Bootstrap",
+      "Material UI",
     ],
   },
   {
@@ -28,7 +30,18 @@ export const skillGroups: SkillGroup[] = [
     skills: ["Firebase", "MongoDB", "MySQL"],
   },
   {
-    title: "Tools",
-    skills: ["Git", "GitHub", "Vercel", "Figma"],
+    title: "Tools & Version Control",
+    skills: ["Git", "GitHub", "GitLab", "BitBucket", "Vercel", "Figma", "Sketch"],
+  },
+  {
+    title: "Collaboration & Workflow",
+    skills: [
+      "Jira",
+      "Agile Methodology",
+      "Trello",
+      "Slack",
+      "Teams",
+      "Open Project",
+    ],
   },
 ];
