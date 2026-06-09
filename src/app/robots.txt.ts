@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://jamenmama.dev/sitemap.xml",
+    sitemap: "https://nemaj.github.io/sitemap.xml",
   };
 }
