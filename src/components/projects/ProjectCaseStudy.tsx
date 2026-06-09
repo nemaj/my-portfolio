@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import type { Project } from "@/types";
+import { contributionLabels } from "@/lib/site";
 import Badge from "@/components/ui/Badge";
 import styles from "./ProjectCaseStudy.module.scss";
 
@@ -22,6 +23,9 @@ export default function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
           >
             <div className={styles.meta}>
               <Badge variant="accent">{project.category}</Badge>
+              <Badge variant="outline">
+                {contributionLabels[project.contribution]}
+              </Badge>
               <span className={styles.year}>{project.year}</span>
               <span className={styles.role}>{project.role}</span>
             </div>

@@ -1,10 +1,11 @@
-import type { Project } from "@/types";
+import type { Project, ProjectContribution } from "@/types";
 
 export const projects: Project[] = [
   {
     slug: "partbnb",
     title: "Partbnb",
     category: "Booking Platform",
+    contribution: "built-from-scratch",
     description:
       "A modern property booking platform with dynamic listings, availability management, and SSR-powered search experiences.",
     longDescription:
@@ -31,6 +32,7 @@ export const projects: Project[] = [
     slug: "lifedirect",
     title: "LifeDirect",
     category: "Insurance",
+    contribution: "major-contributor",
     description:
       "Enterprise insurance platform with dynamic dashboards, policy management, and claims processing interfaces.",
     longDescription:
@@ -57,6 +59,7 @@ export const projects: Project[] = [
     slug: "motorshare",
     title: "MotorShare",
     category: "SaaS",
+    contribution: "built-from-scratch",
     description:
       "Vehicle sharing SaaS platform with real-time booking, Firebase authentication, and mobile-first design.",
     longDescription:
@@ -83,6 +86,7 @@ export const projects: Project[] = [
     slug: "little-ones-admin",
     title: "Little Ones Admin Panel",
     category: "Dashboard",
+    contribution: "built-from-scratch",
     description:
       "Feature-rich admin dashboard with role-based access, data tables, and Firebase-backed content management.",
     longDescription:
@@ -109,6 +113,7 @@ export const projects: Project[] = [
     slug: "pennycrm",
     title: "PennyCRM",
     category: "CRM",
+    contribution: "built-from-scratch",
     description:
       "Full-featured CRM application with Redux Toolkit, RTK Query, and advanced contact management workflows.",
     longDescription:
@@ -135,6 +140,7 @@ export const projects: Project[] = [
     slug: "mre-blackfin-tools",
     title: "MRE Blackfin Tools",
     category: "Enterprise",
+    contribution: "major-contributor",
     description:
       "Internal enterprise reporting dashboards with data visualization, KPI tracking, and Redux-powered analytics.",
     longDescription:
@@ -168,6 +174,13 @@ export const projectCategories = [
   "Booking Platform",
   "Insurance",
 ] as const;
+
+export const contributionFilters: { label: string; value: ProjectContribution | "all" }[] = [
+  { label: "All Projects", value: "all" },
+  { label: "Built From Scratch", value: "built-from-scratch" },
+  { label: "Major Contributor", value: "major-contributor" },
+  { label: "Contributor / Maintenance", value: "contributor-maintenance" },
+];
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);

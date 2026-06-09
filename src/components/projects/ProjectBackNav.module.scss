@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.backNav {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  z-index: 49;
+  background: rgba(5, 8, 22, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid $border-subtle;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 0;
+  font-size: 0.875rem;
+  color: $text-muted;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $text-primary;
+  }
+}

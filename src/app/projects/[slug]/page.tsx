@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
 import { getProjectBySlug, getAllProjectSlugs } from "@/data/projects";
-import Badge from "@/components/ui/Badge";
 import MagneticButton from "@/components/ui/MagneticButton";
+import ProjectBackNav from "@/components/projects/ProjectBackNav";
 import ProjectCaseStudy from "@/components/projects/ProjectCaseStudy";
 import type { Metadata } from "next";
 
@@ -46,17 +45,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <main className="min-h-screen bg-bg-primary">
-      <div className="section-container pt-28 pb-8">
-        <Link
-          href="/#projects"
-          className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-primary transition-colors mb-8"
-        >
-          <ArrowLeft size={16} />
-          Back to Projects
-        </Link>
-      </div>
+      <ProjectBackNav />
 
-      <ProjectCaseStudy project={project} />
+      <div className="pt-[8.5rem]">
+        <ProjectCaseStudy project={project} />
+      </div>
 
       <div className="section-container pb-20 pt-8">
         <div className="flex flex-wrap gap-4 justify-center">

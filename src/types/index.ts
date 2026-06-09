@@ -6,6 +6,11 @@ export type ProjectCategory =
   | "Booking Platform"
   | "Insurance";
 
+export type ProjectContribution =
+  | "built-from-scratch"
+  | "major-contributor"
+  | "contributor-maintenance";
+
 export interface Profile {
   name: string;
   title: string;
@@ -49,6 +54,7 @@ export interface Project {
   slug: string;
   title: string;
   category: ProjectCategory;
+  contribution: ProjectContribution;
   description: string;
   longDescription: string;
   technologies: string[];

@@ -10,6 +10,7 @@ interface MagneticButtonProps {
   className?: string;
   onClick?: () => void;
   href?: string;
+  download?: string;
   variant?: "primary" | "secondary" | "ghost";
   type?: "button" | "submit";
 }
@@ -19,6 +20,7 @@ export default function MagneticButton({
   className,
   onClick,
   href,
+  download,
   variant = "primary",
   type = "button",
 }: MagneticButtonProps) {
@@ -40,6 +42,7 @@ export default function MagneticButton({
     return (
       <motion.a
         href={href}
+        download={download}
         className={classes}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}

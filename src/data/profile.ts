@@ -10,8 +10,8 @@ export const profile: Profile = {
     "Senior Frontend Engineer helping startups and enterprises build scalable digital products.",
   summary:
     "Frontend Developer with 8+ years of experience building scalable, high-performance web applications and modern user interfaces.",
-  linkedin: "https://linkedin.com/in/jamenmama",
-  github: "https://github.com/jamenmama",
+  linkedin: "https://www.linkedin.com/in/jamenmama/",
+  github: "https://github.com/nemaj",
   availability: "available",
 };
 

@@ -4,7 +4,9 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { projects, projectCategories } from "@/data/projects";
+import { projects, projectCategories, contributionFilters } from "@/data/projects";
+import { contributionLabels } from "@/lib/site";
+import type { ProjectContribution } from "@/types";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
 import styles from "./Projects.module.scss";
@@ -53,6 +55,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
         <div className={styles.cardContent}>
           <div className={styles.cardMeta}>
             <Badge variant="accent">{project.category}</Badge>
+            <Badge variant="outline">{contributionLabels[project.contribution]}</Badge>
             <span className={styles.year}>{project.year}</span>
           </div>
           <h3 className={styles.cardTitle}>{project.title}</h3>
@@ -72,11 +75,16 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
 
 export default function Projects() {
   const [filter, setFilter] = useState<string>("All");
+  const [contributionFilter, setContributionFilter] = useState<
+    ProjectContribution | "all"
+  >("all");
 
-  const filtered =
-    filter === "All"
-      ? projects
-      : projects.filter((p) => p.category === filter);
+  const filtered = projects.filter((p) => {
+    const matchesCategory = filter === "All" || p.category === filter;
+    const matchesContribution =
+      contributionFilter === "all" || p.contribution === contributionFilter;
+    return matchesCategory && matchesContribution;
+  });
 
   return (
     <section id="projects" className={`section-padding ${styles.projects}`}>
@@ -95,6 +103,18 @@ export default function Projects() {
               className={`${styles.filterBtn} ${filter === cat ? styles.active : ""}`}
             >
               {cat}
+            </button>
+          ))}
+        </div>
+
+        <div className={styles.filters}>
+          {contributionFilters.map((item) => (
+            <button
+              key={item.value}
+              onClick={() => setContributionFilter(item.value)}
+              className={`${styles.filterBtn} ${contributionFilter === item.value ? styles.active : ""}`}
+            >
+              {item.label}
             </button>
           ))}
         </div>

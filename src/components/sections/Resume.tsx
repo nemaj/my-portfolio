@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Download, FileText } from "lucide-react";
 import { profile } from "@/data/profile";
 import { experiences } from "@/data/experience";
+import { resumeUrl } from "@/lib/site";
 import SectionHeading from "@/components/ui/SectionHeading";
 import MagneticButton from "@/components/ui/MagneticButton";
 import styles from "./Resume.module.scss";
@@ -51,7 +52,11 @@ export default function Resume() {
               </div>
             </div>
 
-            <MagneticButton variant="primary" href="#">
+            <MagneticButton
+              variant="primary"
+              href={resumeUrl}
+              download="Jamen-Mama-Resume.pdf"
+            >
               <Download size={18} />
               Download Resume
             </MagneticButton>
