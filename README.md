@@ -1,44 +1,61 @@
-# Jamen Mama Portfolio
+# Jamen Mama — Senior Frontend Developer Portfolio
 
-React and Next.js portfolio page for Jamen Mama, built from the resume details and selected project list.
+A premium engineering portfolio built with Next.js, React, TypeScript, Tailwind CSS, and Sass Modules.
 
-## Run locally
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router), React 19
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4, Sass Modules
+- **Animation:** Framer Motion, GSAP, Lenis Smooth Scroll
+- **Icons:** Lucide React
+- **Deployment:** Vercel
+
+## Getting Started
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open `http://localhost:3000`.
+Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
-## Static build
-
-This project uses Next.js static export mode. To generate static files:
+## Build
 
 ```bash
-npm install
-npm run build:static
+npm run build
+npm start
 ```
 
-The static site will be generated in the `out` folder.
+## Deploy to Vercel
 
-## Edit content
+Push to GitHub and import the repository in [Vercel](https://vercel.com). No additional configuration required.
 
-Most portfolio content lives in `app/page.tsx`:
+## Project Structure
 
-- `projects` controls the project cards and links.
-- `skills` controls the technology list.
-- `timeline` controls work experience.
+```
+src/
+├── app/                  # Next.js App Router pages
+├── components/
+│   ├── layout/           # Header, Footer, ScrollProgress
+│   ├── sections/         # Page sections (Hero, About, etc.)
+│   ├── projects/         # Project case study components
+│   ├── ui/               # Reusable UI components
+│   └── providers/        # App providers (Lenis smooth scroll)
+├── data/                 # Static content and project data
+├── lib/                  # Utilities and animation configs
+├── styles/               # Sass variables and mixins
+└── types/                # TypeScript type definitions
+```
 
-Global styling lives in `app/globals.css`.
+## Features
 
-## Deploy free with GitHub Pages
-
-1. Create a new public GitHub repository.
-2. Push this project to the `main` branch.
-3. In GitHub, open the repository settings.
-4. Go to **Pages**.
-5. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-6. Push again, or run the **Deploy to GitHub Pages** workflow manually from the Actions tab.
-
-The workflow builds the Next.js app as a static site and publishes the `out` folder to GitHub Pages.
+- Dark luxury design system
+- Smooth scrolling with Lenis
+- Scroll progress indicator
+- Section reveal animations
+- Magnetic buttons
+- Animated project filtering
+- Individual project case study pages
+- SEO optimized metadata
+- Fully responsive layout

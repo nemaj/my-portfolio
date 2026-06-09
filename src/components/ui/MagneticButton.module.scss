@@ -1,0 +1,61 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: $radius-md;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow $transition-base;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.primary {
+  background: linear-gradient(135deg, $accent-blue, $accent-blue-dark);
+  color: $text-primary;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.35);
+  }
+}
+
+.secondary {
+  background: transparent;
+  color: $text-primary;
+  border: 1px solid $border-subtle;
+
+  &:hover {
+    border-color: $border-accent;
+    background: rgba(59, 130, 246, 0.05);
+  }
+}
+
+.ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: $text-secondary;
+  border: 1px solid $border-subtle;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+
+  &:hover {
+    color: $text-primary;
+    border-color: $border-accent;
+  }
+}

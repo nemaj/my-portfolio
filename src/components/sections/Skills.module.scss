@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.skills {
+  background: $bg-secondary;
+}
+
+.grid {
+  @include responsive-grid(280px);
+}
+
+.card {
+  @include glass-card;
+  border-radius: $radius-lg;
+  padding: 2rem;
+  @include hover-lift;
+}
+
+.cardTitle {
+  @include section-label;
+  margin-bottom: 1.5rem;
+  font-size: 0.8125rem;
+}
+
+.skillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill {
+  padding: 0.5rem 1rem;
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid $border-subtle;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: $text-secondary;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $text-primary;
+    border-color: $border-accent;
+    background: rgba(59, 130, 246, 0.08);
+  }
+}

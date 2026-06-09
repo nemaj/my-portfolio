@@ -1,0 +1,52 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.expertise {
+  background: $bg-secondary;
+}
+
+.grid {
+  @include responsive-grid(280px);
+}
+
+.card {
+  @include glass-card;
+  border-radius: $radius-lg;
+  padding: 2rem;
+  transition: all $transition-slow;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-4px);
+
+    .iconWrapper {
+      background: rgba(59, 130, 246, 0.15);
+      color: $accent-blue-light;
+    }
+  }
+}
+
+.iconWrapper {
+  @include flex-center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: $radius-md;
+  background: rgba(255, 255, 255, 0.04);
+  color: $accent-blue;
+  margin-bottom: 1.25rem;
+  transition: all $transition-base;
+}
+
+.cardTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: $text-muted;
+}

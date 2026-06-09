@@ -1,0 +1,150 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.footer {
+  background: $bg-secondary;
+  border-top: 1px solid $border-subtle;
+  padding: 4rem 0 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}
+
+.brand {
+  max-width: 320px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.initials {
+  @include flex-center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, $accent-blue, $accent-purple);
+  color: $text-primary;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.name {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 600;
+  color: $text-primary;
+  font-size: 1rem;
+}
+
+.title {
+  font-size: 0.8125rem;
+  color: $text-muted;
+}
+
+.tagline {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: $text-muted;
+}
+
+.heading {
+  @include section-label;
+  margin-bottom: 1.25rem;
+}
+
+.links ul,
+.contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.links a {
+  font-size: 0.875rem;
+  color: $text-muted;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+  color: $text-muted;
+
+  svg {
+    flex-shrink: 0;
+    color: $accent-blue-light;
+  }
+
+  a {
+    color: $text-muted;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $text-primary;
+    }
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.75rem;
+
+  a {
+    @include flex-center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: $radius-md;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid $border-subtle;
+    color: $text-muted;
+    transition: all $transition-fast;
+
+    &:hover {
+      color: $text-primary;
+      border-color: $border-accent;
+      background: rgba(59, 130, 246, 0.1);
+    }
+  }
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid $border-subtle;
+  font-size: 0.8125rem;
+  color: $text-muted;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.credit {
+  opacity: 0.6;
+}

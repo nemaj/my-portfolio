@@ -1,0 +1,100 @@
+$bg-primary: #050816;
+$bg-secondary: #0b1120;
+$bg-tertiary: #111827;
+
+$accent-blue: #3b82f6;
+$accent-blue-dark: #2563eb;
+$accent-blue-light: #60a5fa;
+
+$accent-purple: #8b5cf6;
+$accent-purple-light: #a855f7;
+
+$text-primary: #ffffff;
+$text-secondary: #cbd5e1;
+$text-muted: #94a3b8;
+
+$border-subtle: rgba(255, 255, 255, 0.06);
+$border-accent: rgba(59, 130, 246, 0.3);
+
+$radius-sm: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+
+$transition-fast: 0.2s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+$section-padding-y: clamp(5rem, 10vw, 8rem);
+$container-max: 1280px;
+
+@mixin glass-card {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid $border-subtle;
+}
+
+@mixin gradient-border {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.4),
+      rgba(139, 92, 246, 0.2),
+      transparent
+    );
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@mixin section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $accent-blue-light;
+}
+
+@mixin heading-xl {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@mixin heading-lg {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@mixin text-gradient {
+  background: linear-gradient(135deg, $text-primary 0%, $accent-blue-light 50%, $accent-purple-light 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin hover-lift {
+  transition: transform $transition-slow, box-shadow $transition-slow;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@mixin glow($color: $accent-blue) {
+  box-shadow: 0 0 30px rgba($color, 0.15);
+}

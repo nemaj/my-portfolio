@@ -1,0 +1,151 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: background $transition-base, backdrop-filter $transition-base,
+    border-color $transition-base;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+    @include glass-card;
+    border-bottom-color: $border-subtle;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.logoInitials {
+  @include flex-center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, $accent-blue, $accent-purple);
+  color: $text-primary;
+  font-weight: 700;
+  font-size: 0.875rem;
+  font-family: var(--font-display), sans-serif;
+}
+
+.logoName {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: $text-primary;
+  letter-spacing: -0.01em;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+}
+
+.navLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $text-muted;
+  transition: color $transition-fast;
+  @include animated-underline;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.ctaButton {
+  display: none;
+  padding: 0.625rem 1.5rem;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, $accent-blue, $accent-blue-dark);
+  color: $text-primary;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+  }
+}
+
+.mobileToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: $text-primary;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  overflow: hidden;
+  @include glass-card;
+  border-top: 1px solid $border-subtle;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.mobileLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0.75rem 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: $text-secondary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.mobileCta {
+  margin-top: 1rem;
+  padding: 0.875rem;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, $accent-blue, $accent-blue-dark);
+  color: $text-primary;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
