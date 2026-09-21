@@ -44,4 +44,8 @@ export const skillGroups: SkillGroup[] = [
       "Open Project",
     ],
   },
+  {
+    title: "AI-Assisted Development",
+    skills: ["OpenAI Codex", "Cursor", "Claude Code"],
+  },
 ];

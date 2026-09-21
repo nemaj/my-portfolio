@@ -5,7 +5,7 @@ export const experiences: Experience[] = [
     id: "blackfin",
     company: "BLACKFIN TECHNOLOGY",
     role: "Frontend Developer",
-    period: "Jan 2018 — May 2026",
+    period: "JAN 2018 – SEP 2026",
     technologies: [
       "React.js",
       "Next.js",
@@ -22,7 +22,8 @@ export const experiences: Experience[] = [
     projects: [
       {
         name: "MotorShare NZ",
-        description: "Vehicle sharing platform with real-time booking flows.",
+        description:
+          "Developed public-facing rental features using React.js, Next.js, Firebase, and SASS.",
         technologies: [
           "React.js",
           "Next.js",
@@ -31,9 +32,9 @@ export const experiences: Experience[] = [
           "Context API",
         ],
         highlights: [
-          "Built vehicle sharing platform with booking and availability",
-          "Implemented Server-Side Rendering (SSR) for dynamic data fetching and improved SEO.",
-          "Designed responsive interfaces for mobile-first users",
+          "Built a kiosk-based check-in system for customers to access their booked vehicles.",
+          "Implemented rental workflows including terms acceptance, licence verification, payment details, and vehicle collection.",
+          "Developed responsive and reusable UI components for customer-facing experiences.",
         ],
       },
       {

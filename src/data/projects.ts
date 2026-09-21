@@ -42,19 +42,20 @@ export const projects: Project[] = [
     category: "Marketplace / Rental Platform",
     headlineCategory: "Marketplaces",
     description:
-      "Vehicle rental platform featuring real-time booking, dynamic availability, and SEO-optimized SSR.",
+      "Public-facing vehicle rental features built with React.js, Next.js, Firebase, and SASS.",
     longDescription:
-      "MotorShare NZ is a vehicle sharing marketplace that enables vehicle owners to list and manage vehicles while allowing renters to browse, book, and track availability in real time. Built with React.js and Next.js, the platform utilizes Server-Side Rendering (SSR) to deliver SEO-friendly, high-performance pages and dynamic data rendering. I contributed to the frontend architecture, developed reusable component systems, implemented responsive booking workflows, integrated Firebase for authentication and real-time updates, and optimized the user experience across desktop and mobile devices.",
+      "For MotorShare NZ, I developed public-facing rental features using React.js, Next.js, Firebase, and SASS. My work included a kiosk-based check-in system that lets customers access their booked vehicles, rental workflows for terms acceptance, licence verification, payment details, and vehicle collection, and responsive, reusable UI components for customer-facing experiences.",
     technologies: ["React.js", "Next.js", "Firebase", "SASS", "Context API"],
     impact: [
-      "Enabled real-time vehicle availability across the platform",
-      "Achieved 95+ Lighthouse performance scores",
-      "Delivered seamless mobile booking experience",
+      "Developed public-facing rental features with React.js, Next.js, Firebase, and SASS",
+      "Built a kiosk-based check-in system for customers to access booked vehicles",
+      "Implemented terms acceptance, licence verification, payment details, and vehicle collection workflows",
+      "Developed responsive, reusable UI components for customer-facing experiences",
     ],
     challenges: [
-      "Real-time synchronization of vehicle availability data",
-      "Designing intuitive booking flows for mobile users",
-      "Firebase authentication integration with custom UI",
+      "Kiosk-based check-in for booked vehicles",
+      "Rental terms, licence verification, payment, and collection workflows",
+      "Reusable responsive UI for customer-facing rental features",
     ],
     liveDemo: "#",
     github: "#",

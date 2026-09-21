@@ -42,7 +42,7 @@ export default function Contact() {
         <SectionHeading
           label="Contact"
           title="Let's Build Something Exceptional"
-          description="Available for senior frontend opportunities, startup projects, and enterprise web application development."
+          description="Available for frontend opportunities, startup projects, and enterprise web application development."
           align="center"
           className="mx-auto"
         />

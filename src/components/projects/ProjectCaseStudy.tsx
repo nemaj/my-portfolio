@@ -51,7 +51,7 @@ export default function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
               transition={{ duration: 0.6 }}
               className={styles.block}
             >
-              <h2 className={styles.blockTitle}>Business Impact</h2>
+              <h2 className={styles.blockTitle}>Key Contributions</h2>
               <ul className={styles.list}>
                 {project.impact.map((item) => (
                   <li key={item}>

@@ -19,32 +19,32 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Jamen Mama | Senior Frontend Developer",
+  title: "Jamen Mama | Frontend Developer",
   description:
-    "Senior Frontend Developer with 8+ years of experience building scalable web applications using React.js, Next.js, Angular, TypeScript, and modern frontend technologies.",
+    "Frontend Developer with 9+ years of experience building scalable, high-performance web applications using React.js, Next.js, Angular, TypeScript, and modern frontend technologies.",
   keywords: [
     "Frontend Developer",
     "React Developer",
     "Next.js Developer",
     "Angular Developer",
     "TypeScript Developer",
-    "Senior Frontend Engineer",
+    "Frontend Engineer",
   ],
   authors: [{ name: "Jamen Mama" }],
   creator: "Jamen Mama",
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Jamen Mama | Senior Frontend Developer",
+    title: "Jamen Mama | Frontend Developer",
     description:
-      "Senior Frontend Engineer helping startups and enterprises build scalable digital products.",
+      "Frontend Developer building scalable, high-performance web applications and user interfaces.",
     siteName: "Jamen Mama Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jamen Mama | Senior Frontend Developer",
+    title: "Jamen Mama | Frontend Developer",
     description:
-      "Senior Frontend Engineer helping startups and enterprises build scalable digital products.",
+      "Frontend Developer building scalable, high-performance web applications and user interfaces.",
   },
   robots: {
     index: true,
@@ -61,7 +61,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Jamen Mama",
-    jobTitle: "Senior Frontend Developer",
+    jobTitle: "Frontend Developer",
     email: "jamen.dev@gmail.com",
     telephone: "+63-995-031-5549",
     address: {

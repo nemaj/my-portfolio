@@ -125,9 +125,9 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.8 }}
               className={styles.subheadline}
             >
-              Senior Frontend Developer with 8+ years of experience delivering
-              enterprise-grade web applications, SaaS platforms, and startup
-              products using React, Next.js, Angular, and TypeScript.
+              Frontend Developer with 9+ years of experience building scalable,
+              high-performance web applications and user interfaces using React,
+              Next.js, Angular, TypeScript, and JavaScript.
             </motion.p>
 
             <motion.div
@@ -182,7 +182,7 @@ export default function Hero() {
                 <p className={styles.profileLocation}>{profile.location}</p>
               </div>
               <div className={styles.experienceCounter}>
-                <span className={styles.counterValue}>8+</span>
+                <span className={styles.counterValue}>9+</span>
                 <span className={styles.counterLabel}>Years of Experience</span>
               </div>
             </div>

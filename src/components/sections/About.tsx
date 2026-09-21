@@ -25,16 +25,19 @@ export default function About() {
             className={styles.content}
           >
             <p className={styles.intro}>
-              <strong>{profile.name}</strong> is a Senior Frontend Developer with
+              <strong>{profile.name}</strong> is a Frontend Developer with
               extensive experience building scalable web applications for startups,
               SaaS businesses, insurance platforms, booking systems, and enterprise
               products.
             </p>
             <p className={styles.description}>
-              With over 8 years of hands-on experience, I specialize in architecting
+              With over 9 years of hands-on experience, I specialize in architecting
               performant frontend systems using React, Next.js, Angular, and TypeScript.
               I thrive in cross-functional teams, translating complex business
-              requirements into elegant, user-centered interfaces.
+              requirements into elegant, user-centered interfaces. I also use
+              AI-assisted development tools, including OpenAI Codex, Cursor, and
+              Claude Code, to accelerate development, debugging, refactoring, and
+              code optimization.
             </p>
 
             <motion.ul
